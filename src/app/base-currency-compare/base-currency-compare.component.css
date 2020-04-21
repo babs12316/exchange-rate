@@ -1,29 +1,38 @@
 #baseCurrency {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #baseCurrency td, #baseCurrency th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #baseCurrency tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #baseCurrency tr:hover {background-color: #ddd;}
-  
-  #baseCurrency th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-  }
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  button {
-    margin-right: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
+#baseCurrency td,
+#baseCurrency th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#baseCurrency tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#baseCurrency tr:hover {
+  background-color: #ddd;
+}
+
+#baseCurrency th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+button {
+  margin-right: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+button:hover {
+  cursor: pointer;
+}

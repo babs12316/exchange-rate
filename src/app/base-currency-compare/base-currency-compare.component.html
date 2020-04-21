@@ -1,19 +1,17 @@
-
-
 <button (click)="getData('increase')" [disabled]="actionStatus==='increase'">Increase</button>
 <button (click)="getData('decrease')" [disabled]="actionStatus==='decrease'">Decrease</button>
 <table id="baseCurrency">
     <thead>
         <th>Currency</th>
-         <th>Difference</th>
-         <th>Percentage</th>
+        <th>Difference</th>
+        <th>Percentage</th>
     </thead>
     <tbody>
-    <tr *ngFor='let item of sortedData;index as i'>
-      
-       <td>{{item[0][1]}}</td> 
-       <td >{{item[1][1].toFixed(2)}}</td> 
-       <td >{{item[2][1].toFixed(2)}}</td> 
-    </tr>
-</tbody>
+        <tr *ngFor='let item of sortedData;index as i'>
+
+            <td>{{item[0][1]}}</td>
+            <td>{{item[1][1].toFixed(2)}}</td>
+            <td>{{item[2][1].toFixed(2)}}</td>
+        </tr>
+    </tbody>
 </table>

@@ -7,7 +7,7 @@ import {SelectedBaseCurrencyComponent} from './selected-base-currency/selected-b
 import{BaseCurrencyCompareComponent} from './base-currency-compare/base-currency-compare.component';
 
 const routes: Routes = [
-   { path: '',   redirectTo: '/latest-rate', pathMatch: 'full' },
+   { path: '',   redirectTo: '/latest-rate', pathMatch: 'full' },   //default path set to lates-rate
   { path: 'latest-rate', component: LatestRateComponent },
   { path: 'base-chart', component: SelectedBaseCurrencyComponent },
   { path: 'symbol-chart/:id', component: SelectedCurrencyComponent },

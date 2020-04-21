@@ -1,35 +1,44 @@
-.items{
-    border:1px solid #ccc;
-    padding:5px;
-    width:80px;
-    margin-top: 10px;
+.items {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 80px;
+  margin-top: 10px;
 }
 
 #latestRate {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #latestRate td, #latestRate th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #latestRate tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #latestRate tr:hover {background-color: #ddd;}
-  
-  #latestRate th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-  }
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  select{
-    margin-bottom: 20px;
-      float: right;
-      width: 100px;
-  }
+#latestRate td,
+#latestRate th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#latestRate tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#latestRate tr:hover {
+  background-color: #ddd;
+}
+
+#latestRate th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4caf50;
+  color: white;
+}
+
+#latestRate button a{
+    color:#000;
+}
+
+select {
+  margin-bottom: 20px;
+  float: right;
+  width: 100px;
+}
