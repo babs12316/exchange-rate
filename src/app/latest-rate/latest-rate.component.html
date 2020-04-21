@@ -1,0 +1,27 @@
+<div>
+<select  (change)="selectOption($event.target.value)">
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+</select>
+<table id="latestRate">
+    <thead>
+        <th>Currency</th>
+        <th>Spot</th>
+        <th>Increase/Decrease</th>
+        <th>Chart</th>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let exchnageInfo of todaysData; let i=index">
+            <td>{{exchnageInfo[0]}}</td>
+            <td>{{exchnageInfo[1]}}</td>
+            <td>{{diffData[i]}}</td>
+            <td><button><a routerLink="/symbol-chart/{{exchnageInfo[0]}}" routerLinkActive="active">Chart</a></button></td>
+        </tr>
+    </tbody>
+
+</table>
+
+</div>
+
+
