@@ -46,7 +46,7 @@ export class ExchangeRateService {
       /*  **dynamic url** */
       //'https://api.exchangeratesapi.io/history?start_at='+yesterday+'&end_at='+today+'&base='+base
 
-      //using static url as dyamic url currently not giving data for today
+      // **using static url as dyamic url currently not giving data for both dates (as well as sometimes both dates are same)** //
       this.httpClient
         .get(
           'https://api.exchangeratesapi.io/history?start_at=2020-04-16&end_at=2020-04-17&base=' +

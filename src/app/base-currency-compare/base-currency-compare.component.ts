@@ -18,7 +18,6 @@ export class BaseCurrencyCompareComponent implements OnInit {
 
   sortedData: any = [];
 
-
   base: string = 'EUR';
   //set default clicked button to incrase
   actionStatus: string = 'increase';
@@ -28,9 +27,7 @@ export class BaseCurrencyCompareComponent implements OnInit {
     this.getData('increase');
   }
 
-  
-  public getData(action:string): void {
-
+  public getData(action: string): void {
     // set actioStatus for hiding or showing buttons
     this.actionStatus = action;
 
@@ -39,42 +36,40 @@ export class BaseCurrencyCompareComponent implements OnInit {
     this.diffDecreaseData = [];
 
     this.exchangeRateService.getData(this.base).subscribe((results: any) => {
-     
       this.exchangeData = Object.entries(results); // convert it into array
 
       //if json does not have 2nd parameter i.e. value of past date
       if (this.exchangeData[1]) {
         this.todaysData = Object.entries(this.exchangeData[1][1]); // Get data for today
       } else {
-        this.todaysData = Object.entries(this.exchangeData[0][1]); 
+        this.todaysData = Object.entries(this.exchangeData[0][1]);
       }
       this.yesterdaysData = Object.entries(this.exchangeData[0][1]); // get data for yesterday
 
-
-      for (let i = 0; i < this.todaysData.length; i++) {
-      // checks if currency value increased, if yes then stores all inforamtion in diffIncreaseData array
-        if (this.todaysData[i][1] > this.yesterdaysData[i][1]) {
+      this.todaysData.forEach((today: any, i: number) => {
+        // checks if currency value increased, if yes then stores all inforamtion in diffIncreaseData array
+        if (today[1] > this.yesterdaysData[i][1]) {
           this.diffIncreaseData.push({
-            currency: this.todaysData[i][0],
-            diff: this.todaysData[i][1] - this.yesterdaysData[i][1],
+            currency: today[0],
+            diff: today[1] - this.yesterdaysData[i][1],
             percentage:
-              ((this.todaysData[i][1] - this.yesterdaysData[i][1]) /
+              ((today[1] - this.yesterdaysData[i][1]) /
                 this.yesterdaysData[i][1]) *
               100,
-          });  // checks if currency value decreased, if yes then stores all inforamtion in diffDecreaseData array
-        } else if (this.todaysData[i][1] < this.yesterdaysData[i][1]) {
+          }); // checks if currency value decreased, if yes then stores all inforamtion in diffDecreaseData array
+        } else if (today[1] < this.yesterdaysData[i][1]) {
           this.diffDecreaseData.push({
-            currency: this.todaysData[i][0],
-            diff: this.yesterdaysData[i][1] - this.todaysData[i][1],
+            currency: today[0],
+            diff: this.yesterdaysData[i][1] - today[1],
             percentage:
-              ((this.yesterdaysData[i][1] - this.todaysData[i][1]) /
+              ((this.yesterdaysData[i][1] - today[1]) /
                 this.yesterdaysData[i][1]) *
               100,
           });
         }
-      }
+      });
 
-     //checks if decrease button is clicked
+      //checks if decrease button is clicked
       if (action === 'decrease') {
         // then does sorting, get first five items and convert it into array
         this.sortedData = this.diffDecreaseData
@@ -82,17 +77,17 @@ export class BaseCurrencyCompareComponent implements OnInit {
             return b.diff - a.diff;
           })
           .slice(0, 5)
-          .map((item:any) => Object.entries(item));
-      } else
+          .map((item: any) => Object.entries(item));
+      }
       //checks if decrease button is clicked
-      if (action === 'increase') {
+      else if (action === 'increase') {
         // then does sorting, get first five items and convert it into array
         this.sortedData = this.diffIncreaseData
           .sort(function (a: any, b: any) {
             return b.diff - a.diff;
           })
           .slice(0, 5)
-          .map((item:any) => Object.entries(item));
+          .map((item: any) => Object.entries(item));
       }
     });
   }

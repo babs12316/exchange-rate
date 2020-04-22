@@ -31,15 +31,15 @@ export class LatestRateComponent implements OnInit {
       this.yesterdaysData = Object.entries(this.exchangeData[0][1]);
 
       //compare todays currency data,yesterdays currency data & create a new array storing comparision status
-      for (let i = 0; i < this.todaysData.length; i++) {
-        if (this.todaysData[i][1] > this.yesterdaysData[i][1]) {
+      this.todaysData.forEach((today: any, i: number) => {
+        if (today[1] > this.yesterdaysData[i][1]) {
           this.diffData.push('increased');
-        } else if (this.todaysData[i][1] < this.yesterdaysData[i][1]) {
+        } else if (today[1] < this.yesterdaysData[i][1]) {
           this.diffData.push('decreased');
         } else {
           this.diffData.push('equal');
         }
-      }
+      });
     });
   }
 
